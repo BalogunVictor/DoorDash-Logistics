@@ -1,11 +1,21 @@
-import { ReactElement } from 'react';
-import { Button } from '@ui/buttons';
+import { ReactElement, useMemo } from 'react';
+import { useQuery } from 'react-query';
+import SideBar from '@ui/SideBar';
 import Head from 'next/head';
+import { requestUser } from 'src/api/userData';
 import { Layout } from 'src/layouts';
+
+import Table from '../components/table';
+import { COLUMNS } from '../components/table/column';
 
 import { NextPageWithLayout } from './_app';
 
 const Home: NextPageWithLayout = () => {
+  const { isLoading, error, data: users } = useQuery('userData', requestUser);
+
+  const data = useMemo(() => (!users ? [] : [...users?.users]), [users]);
+  const columns = useMemo(() => COLUMNS, []);
+
   return (
     <>
       <Head>
@@ -14,10 +24,13 @@ const Home: NextPageWithLayout = () => {
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link href="/favicon.ico" rel="icon" />
       </Head>
-      <main className="container  mx-auto h-60 bg-gray-50">
-        <h1>Tailwindcss, nextjs, typescript && class-variance-authority</h1>
-        <Button size="sm">Submit</Button>
-        <Button size="md">Submit</Button>
+      <main className="container mx-auto flex h-60 bg-gray-50">
+        <div className="w-[30%]">
+          <SideBar />
+        </div>
+        <div className="w-full">
+          <Table columns={columns} data={data} />
+        </div>
       </main>
     </>
   );

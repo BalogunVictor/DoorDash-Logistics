@@ -5,11 +5,5 @@ type Props = {
 };
 
 export const Layout = ({ children }: Props) => {
-  return (
-    <div>
-      <div>Header</div>
-      {children}
-      <footer>footer</footer>
-    </div>
-  );
+  return <div>{children}</div>;
 };
