@@ -2,6 +2,7 @@ import { ReactElement, ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
+import { StateContext } from 'src/context/stateContext';
 
 import '../styles/global.css';
 
@@ -21,9 +22,11 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   return getLayout(
     <>
-      <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
-      </QueryClientProvider>
+      <StateContext>
+        <QueryClientProvider client={queryClient}>
+          <Component {...pageProps} />
+        </QueryClientProvider>
+      </StateContext>
     </>
   );
 }

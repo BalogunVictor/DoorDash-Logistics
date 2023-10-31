@@ -1,21 +1,11 @@
-import { ReactElement, useMemo } from 'react';
-import { useQuery } from 'react-query';
+import { ReactElement } from 'react';
 import SideBar from '@ui/SideBar';
 import Head from 'next/head';
-import { requestUser } from 'src/api/userData';
 import { Layout } from 'src/layouts';
-
-import Table from '../components/table';
-import { COLUMNS } from '../components/table/column';
 
 import { NextPageWithLayout } from './_app';
 
 const Home: NextPageWithLayout = () => {
-  const { isLoading, error, data: users } = useQuery('userData', requestUser);
-
-  const data = useMemo(() => (!users ? [] : [...users?.users]), [users]);
-  const columns = useMemo(() => COLUMNS, []);
-
   return (
     <>
       <Head>
@@ -28,9 +18,7 @@ const Home: NextPageWithLayout = () => {
         <div className="w-[30%]">
           <SideBar />
         </div>
-        <div className="w-full">
-          <Table columns={columns} data={data} />
-        </div>
+        <div className="w-full"></div>
       </main>
     </>
   );
