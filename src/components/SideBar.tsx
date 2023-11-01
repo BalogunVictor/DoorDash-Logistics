@@ -32,10 +32,10 @@ const Logo = ({ className = '' }) => {
 const LinkItem = ({ Icon, linkName, onClick }: LinkProps) => {
   return (
     <div
-      className="z-10 h-10 w-full rounded-md bg-white px-3 hover:bg-black"
+      className="z-10 my-2 h-10 w-full rounded-md bg-white px-3 hover:bg-black "
       onClick={onClick}
     >
-      <div className="flex h-full  items-center gap-3 hover:text-[#f0d952]">
+      <div className="flex h-full cursor-pointer items-center gap-3 hover:text-[#f0d952]">
         {<Icon />}
         <p>{linkName}</p>
       </div>

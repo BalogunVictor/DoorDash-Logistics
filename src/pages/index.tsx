@@ -14,6 +14,8 @@ const Home: NextPageWithLayout = () => {
 
   function CurrentTable(props: string) {
     switch (props) {
+      case '':
+        return <Users />;
       case 'Users':
         return <Users />;
       case 'Orders':
@@ -33,7 +35,7 @@ const Home: NextPageWithLayout = () => {
         <link href="/favicon.ico" rel="icon" />
       </Head>
       <main className="container mx-auto flex h-60 bg-gray-50">
-        <div className="w-[30%]">
+        <div className="w-[35%]">
           <SideBar />
         </div>
         <div className="w-full">{CurrentTable(table)}</div>
