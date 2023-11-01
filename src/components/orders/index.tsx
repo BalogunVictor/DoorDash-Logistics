@@ -6,17 +6,21 @@ import Table from '../table';
 
 import { COLUMNS } from './column';
 
-const User = () => {
-  const { isLoading, error, data: orders } = useQuery('userData', requestOrder);
+const OrdersTable = () => {
+  const {
+    isLoading,
+    error,
+    data: orders,
+  } = useQuery('orderData', requestOrder);
 
-  const data = useMemo(() => (!orders ? [] : [...orders.carts]), [orders]);
+  const data = useMemo(() => (!orders ? [] : [...orders?.carts]), [orders]);
   const columns = useMemo(() => COLUMNS, []);
 
   return (
     <>
-      <Table columns={columns} data={data} />
+      <Table columns={columns} data={data} title={'Orders'} />
     </>
   );
 };
 
-export default User;
+export default OrdersTable;

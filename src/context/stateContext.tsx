@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from 'react';
 import { ChildrenProps } from 'src/models/state';
 
 const Context = createContext<any>({
-  setTable: () => '',
+  setTable: () => {},
   table: '',
 });
 
@@ -14,9 +14,7 @@ const StateContext = ({ children }: ChildrenProps) => {
     table,
   };
 
-  return (
-    <Context.Provider value={{ contextValue }}>{children}</Context.Provider>
-  );
+  return <Context.Provider value={contextValue}>{children}</Context.Provider>;
 };
 
 const useStateContext = (): any => useContext(Context);

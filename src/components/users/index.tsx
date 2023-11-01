@@ -6,7 +6,7 @@ import Table from '../table';
 
 import { COLUMNS } from './column';
 
-const User = () => {
+const Users = () => {
   const { isLoading, error, data: users } = useQuery('userData', requestUser);
 
   const data = useMemo(() => (!users ? [] : [...users?.users]), [users]);
@@ -14,9 +14,9 @@ const User = () => {
 
   return (
     <>
-      <Table columns={columns} data={data} />
+      <Table columns={columns} data={data} title={'Users'} />
     </>
   );
 };
 
-export default User;
+export default Users;

@@ -31,7 +31,7 @@ function Table({ columns, data, title }: any) {
 
   return (
     <div className="bg-gray-100 p-2">
-      <h2 className="py-4">{title} Users</h2>
+      <h2 className="py-4">{title}</h2>
       <div className="flex h-8 justify-between">
         <div className="flex items-center gap-4">
           <p className="text-gray-700/50">

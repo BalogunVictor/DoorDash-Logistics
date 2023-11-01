@@ -7,8 +7,8 @@ export const COLUMNS = [
   columnHelper.accessor('id', {
     header: 'S/N',
   }),
-  columnHelper.accessor('products.title', {
-    header: 'Products',
+  columnHelper.accessor((row) => row.products[0]?.title, {
+    header: 'Product Title',
   }),
   columnHelper.accessor('total', {
     header: 'Total',
