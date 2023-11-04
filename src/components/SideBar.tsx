@@ -1,5 +1,5 @@
 import { AiOutlineExport } from 'react-icons/ai';
-import { BiCollection, BiMessageSquareDots } from 'react-icons/bi';
+import { BiCollection, BiMessageSquareDots, BiSolidHome } from 'react-icons/bi';
 import { FaMoneyBill, FaUsers } from 'react-icons/fa';
 import { RiEBike2Fill } from 'react-icons/ri';
 import classNames from 'classnames';
@@ -7,7 +7,7 @@ import { useStateContext } from 'src/context/stateContext';
 import { LinkProps } from 'src/models/link';
 
 export const Links = [
-  { icon: FaUsers, linkName: 'DashBoard' },
+  { icon: BiSolidHome, linkName: 'DashBoard' },
   { icon: FaUsers, linkName: 'Users' },
   { icon: BiCollection, linkName: 'Orders' },
   { icon: FaMoneyBill, linkName: 'Payment-Disbursement' },

@@ -34,7 +34,7 @@ const Home: NextPageWithLayout = () => {
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link href="/favicon.ico" rel="icon" />
       </Head>
-      <main className="container mx-auto flex h-60 bg-gray-50">
+      <main className="container mx-auto flex h-full bg-gray-50">
         <div className="w-[35%]">
           <SideBar />
         </div>

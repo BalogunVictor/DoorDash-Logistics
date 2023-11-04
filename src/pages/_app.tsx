@@ -1,4 +1,5 @@
 import { ReactElement, ReactNode } from 'react';
+import { Toaster } from 'react-hot-toast';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { NextPage } from 'next';
 import type { AppProps } from 'next/app';
@@ -24,6 +25,18 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     <>
       <StateContext>
         <QueryClientProvider client={queryClient}>
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              duration: 3000,
+              error: {
+                className: '!bg-rose-700 w-82 text-sm font-bold !text-white',
+              },
+              success: {
+                className: '!bg-lime-900 w-82 text-sm font-bold !text-white',
+              },
+            }}
+          />
           <Component {...pageProps} />
         </QueryClientProvider>
       </StateContext>
