@@ -36,7 +36,7 @@ const OrdersTable = () => {
             />
           )}
         </div>
-        {isError && <Table columns={columns} data={data} title={'Orders'} />}
+        {orders && <Table columns={columns} data={data} title={'Orders'} />}
         {isError && toast.error('An error occurred')}
       </div>
     </>
