@@ -65,7 +65,7 @@ function Table({ columns, data, title }: any) {
         />
       </div>
       <div className="relative overflow-x-auto py-4">
-        <table className="w-full">
+        <table className="w-full table-auto">
           <thead className="text-xs text-gray-700/50">
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
